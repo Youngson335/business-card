@@ -8,6 +8,7 @@
       <UserLInk />
       <CarouselReviews />
       <UserPortfolio />
+      <UserGoal />
     </main>
 
     <Logo />
@@ -20,6 +21,7 @@ import UserExperience from "@/components/UserExperience.vue";
 import UserLInk from "@/components/UserLInk.vue";
 import CarouselReviews from "@/components/CarouselReviews.vue";
 import UserPortfolio from "@/components/UserPortfolio.vue";
+import UserGoal from "@/components/UserGoal.vue";
 export default {
   components: {
     Logo,
@@ -28,6 +30,7 @@ export default {
     UserLInk,
     CarouselReviews,
     UserPortfolio,
+    UserGoal,
   },
 };
 </script>
@@ -38,5 +41,6 @@ export default {
 .container {
   max-width: 1000px;
   margin: 0 auto;
+  width: calc(100% - 30px);
 }
 </style>

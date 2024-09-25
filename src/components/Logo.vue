@@ -14,6 +14,7 @@ export default {};
   filter: drop-shadow(0 -6mm 4mm rgba(33, 32, 32, 0.68));
   &--img {
     width: 100%;
+    display: block;
   }
   @keyframes showLogo {
     0% {
