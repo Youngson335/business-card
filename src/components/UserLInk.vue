@@ -54,8 +54,21 @@ export default {};
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 40px;
     & img {
       width: 100%;
+      animation: activeLinkImage 3s ease infinite;
+      @keyframes activeLinkImage {
+        0% {
+          scale: 1;
+        }
+        50% {
+          scale: 1.1;
+        }
+        100% {
+          scale: 1;
+        }
+      }
     }
   }
   &__items {
@@ -74,6 +87,29 @@ export default {};
         background-color: rgb(27, 27, 27);
         transition: all 0.2s ease-in-out;
       }
+    }
+  }
+}
+@media (max-width: 600px) {
+  .user {
+    &__link {
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+  }
+  .link {
+    &__image {
+      order: 2;
+      margin-right: 0;
+      max-height: 200px;
+      & img {
+        max-width: 200px;
+      }
+    }
+    &__items {
+      margin-bottom: 15px;
+      font-size: 17px;
+      padding: 30px;
     }
   }
 }

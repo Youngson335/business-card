@@ -155,4 +155,30 @@ export default defineComponent({
     overflow: visible;
   }
 }
+@media (max-width: 600px) {
+  .carousel {
+    &__image {
+      top: -50%;
+    }
+    &__slide {
+      padding: 0;
+    }
+    &__item {
+      min-height: 150px;
+      padding: 0;
+      &--img {
+        width: 95%;
+      }
+    }
+    &__block {
+      align-items: center;
+      margin-bottom: 0;
+      height: 300px;
+    }
+  }
+  .carousel__prev,
+  .carousel .carousel__next {
+    display: none;
+  }
+}
 </style>

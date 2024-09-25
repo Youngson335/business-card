@@ -12,7 +12,7 @@
         </span>
       </p>
     </div>
-    <div class="experience__image">
+    <div ref="experienceIMG" class="active__img">
       <img src="../assets/items/people/img5.png" alt="" />
     </div>
   </div>
@@ -42,6 +42,14 @@ export default {
       ],
       activeIndex: 0,
     };
+  },
+  methods: {
+    addClassImg() {
+      setTimeout(() => {
+        this.$refs.experienceIMG.classList.add("experience__image");
+        this.$refs.experienceIMG.classList.remove("active__img");
+      }, 1500);
+    },
   },
   mounted() {
     setInterval(() => {
@@ -95,6 +103,42 @@ export default {
     color: #1c1b1c;
     transition: all 0.2s ease;
     padding-bottom: 2px;
+  }
+}
+
+.active__img {
+  max-width: 350px;
+  position: relative;
+  animation: showImage 0.7s ease;
+  @keyframes showImage {
+    0% {
+      filter: blur(10px);
+      transform: translate(200%, 200%);
+    }
+    100% {
+      filter: blur(0px);
+      transform: translate(0%, 0%);
+    }
+  }
+  & img {
+    width: 100%;
+    position: relative;
+    top: -56px;
+    animation: animateIMG 3s ease-in-out infinite;
+  }
+}
+@media (max-width: 600px) {
+  .experience {
+    flex-direction: column;
+    align-items: center;
+  }
+  .experience__text {
+    font-size: 17px;
+    line-height: 27px;
+  }
+  .active__img img {
+    top: -20px;
+    max-width: 200px;
   }
 }
 </style>
