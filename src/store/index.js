@@ -211,8 +211,8 @@ export default createStore({
         title: "Лендинг",
         description:
           "Разработка ознакомительного лендинга для компании на привлечение новых рабочих",
-        link: "https://tg-admin-panel.vercel.app/",
-        gitHub: "https://github.com/Youngson335/tg-admin-panel",
+        link: null,
+        gitHub: null,
         images: [img13_1, img13_2, img13_3, img13_4],
       },
     ],

@@ -39,6 +39,7 @@ export default {
         "telegramWebApp",
         "БЭМ",
         "Leaflet",
+        "tailwind",
       ],
       activeIndex: 0,
     };
