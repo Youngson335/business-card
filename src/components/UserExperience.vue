@@ -102,7 +102,6 @@ export default {
     background-color: white;
     color: #1c1b1c;
     transition: all 0.2s ease;
-    padding-bottom: 2px;
   }
 }
 

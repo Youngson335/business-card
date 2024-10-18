@@ -63,6 +63,26 @@ import img10_1 from "../assets/portfolio/work8/1.png";
 import img10_2 from "../assets/portfolio/work8/2.png";
 import img10_3 from "../assets/portfolio/work8/3.png";
 
+import img11_1 from "../assets/portfolio/work9/1.png";
+import img11_2 from "../assets/portfolio/work9/2.png";
+import img11_3 from "../assets/portfolio/work9/3.png";
+import img11_4 from "../assets/portfolio/work9/4.png";
+import img11_5 from "../assets/portfolio/work9/5.png";
+import img11_6 from "../assets/portfolio/work9/6.png";
+import img11_7 from "../assets/portfolio/work9/7.png";
+
+import img12_1 from "../assets/portfolio/work10/1.png";
+import img12_2 from "../assets/portfolio/work10/2.png";
+import img12_3 from "../assets/portfolio/work10/3.png";
+import img12_4 from "../assets/portfolio/work10/4.png";
+import img12_5 from "../assets/portfolio/work10/5.png";
+import img12_6 from "../assets/portfolio/work10/6.png";
+
+import img13_1 from "../assets/portfolio/work11/1.png";
+import img13_2 from "../assets/portfolio/work11/2.png";
+import img13_3 from "../assets/portfolio/work11/3.png";
+import img13_4 from "../assets/portfolio/work11/4.png";
+
 export default createStore({
   state: {
     portfolio: [
@@ -165,6 +185,35 @@ export default createStore({
         link: null,
         gitHub: null,
         images: [img10_1, img10_2, img10_3],
+      },
+      {
+        id: 11,
+        name: "work11",
+        title: "Лендинг",
+        description:
+          "Разработка ознакомительного лендинга для компании по разработке мобильных приложений!",
+        link: "https://nmnh-front.vercel.app/",
+        gitHub: "https://github.com/Youngson335/currency-converter",
+        images: [img11_1, img11_2, img11_3, img11_4, img11_5, img11_6, img11_7],
+      },
+      {
+        id: 12,
+        name: "work12",
+        title: "Админ-панель",
+        description: "Разработка мини-админ панели для управления api",
+        link: "https://tg-admin-panel.vercel.app/",
+        gitHub: "https://github.com/Youngson335/tg-admin-panel",
+        images: [img12_1, img12_2, img12_3, img12_4, img12_5, img12_6],
+      },
+      {
+        id: 13,
+        name: "work13",
+        title: "Лендинг",
+        description:
+          "Разработка ознакомительного лендинга для компании на привлечение новых рабочих",
+        link: "https://tg-admin-panel.vercel.app/",
+        gitHub: "https://github.com/Youngson335/tg-admin-panel",
+        images: [img13_1, img13_2, img13_3, img13_4],
       },
     ],
   },
