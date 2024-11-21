@@ -83,6 +83,17 @@ import img13_2 from "../assets/portfolio/work11/2.png";
 import img13_3 from "../assets/portfolio/work11/3.png";
 import img13_4 from "../assets/portfolio/work11/4.png";
 
+import img14_1 from "../assets/portfolio/work12/1.png";
+import img14_2 from "../assets/portfolio/work12/2.png";
+import img14_3 from "../assets/portfolio/work12/3.png";
+import img14_4 from "../assets/portfolio/work12/4.png";
+import img14_5 from "../assets/portfolio/work12/5.png";
+import img14_6 from "../assets/portfolio/work12/6.png";
+import img14_7 from "../assets/portfolio/work12/7.png";
+import img14_8 from "../assets/portfolio/work12/8.png";
+import img14_9 from "../assets/portfolio/work12/9.png";
+import img14_10 from "../assets/portfolio/work12/10.png";
+
 export default createStore({
   state: {
     portfolio: [
@@ -214,6 +225,27 @@ export default createStore({
         link: null,
         gitHub: null,
         images: [img13_1, img13_2, img13_3, img13_4],
+      },
+      {
+        id: 14,
+        name: "work14",
+        title: "Сервис записи в barbershops Москвы",
+        description:
+          "Разработка сервиса для выбора и записи в разные барбершовы Москвы! Данный сервис разрабатывался на Nuxt/TypeScript/Pinia",
+        link: null,
+        gitHub: null,
+        images: [
+          img14_1,
+          img14_2,
+          img14_3,
+          img14_4,
+          img14_5,
+          img14_6,
+          img14_7,
+          img14_8,
+          img14_9,
+          img14_10,
+        ],
       },
     ],
   },
