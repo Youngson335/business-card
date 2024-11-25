@@ -1,7 +1,13 @@
 <template>
   <div class="user__link">
     <div class="link__image">
-      <img src="../assets/items/people/img2.png" alt="" />
+      <img
+        @load="checkImageLoading"
+        src="../assets/items/people/img2.png"
+        alt=""
+        style="display: none"
+        ref="experienceIMG"
+      />
     </div>
     <div class="link__items">
       <div class="link__item">
@@ -34,7 +40,23 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      imageLoading: true,
+    };
+  },
+  methods: {
+    checkImageLoading() {
+      const img = this.$refs.experienceIMG;
+      this.imageLoading = false;
+      if (this.imageLoading === false) {
+        img.style.display = "block";
+        this.$emit("stopLoader", true);
+      }
+    },
+  },
+};
 </script>
 <style lang="scss">
 .user__link {

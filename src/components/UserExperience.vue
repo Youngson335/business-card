@@ -12,8 +12,14 @@
         </span>
       </p>
     </div>
-    <div ref="experienceIMG" class="active__img">
-      <img src="../assets/items/people/img5.png" alt="" />
+    <div class="image-container active__img">
+      <img
+        ref="experienceIMG"
+        @load="checkImageLoading"
+        src="../assets/items/people/img5.png"
+        alt="experience"
+        style="display: none"
+      />
     </div>
   </div>
 </template>
@@ -27,7 +33,9 @@ export default {
         "CSS3",
         "JavaScript",
         "Vue3/Vuex",
+        "Pinia",
         "NuxtJS",
+        "TypeScript",
         "Docker",
         "Scss",
         "npm",
@@ -42,14 +50,17 @@ export default {
         "tailwind",
       ],
       activeIndex: 0,
+      imageLoading: true,
     };
   },
   methods: {
-    addClassImg() {
-      setTimeout(() => {
-        this.$refs.experienceIMG.classList.add("experience__image");
-        this.$refs.experienceIMG.classList.remove("active__img");
-      }, 1500);
+    checkImageLoading() {
+      const img = this.$refs.experienceIMG;
+      this.imageLoading = false;
+      if (this.imageLoading === false) {
+        img.style.display = "block";
+        this.$emit("stopLoader", true);
+      }
     },
   },
   mounted() {

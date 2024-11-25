@@ -48,7 +48,10 @@
             class="portfolio__images"
           >
             <div class="slide__images">
-              <img :src="slide" alt="" />
+              <div class="load-portfolio" v-if="loadImage === true">
+                <div class="loader"></div>
+              </div>
+              <img :src="slide" alt="" @load="checkImageLoading" />
             </div>
           </Slide>
 
@@ -79,6 +82,7 @@ export default defineComponent({
   data() {
     return {
       activePortfolio: 1,
+      loadImage: true,
     };
   },
   computed: {
@@ -92,9 +96,14 @@ export default defineComponent({
   },
   methods: {
     selectPortfolio(id) {
+      this.loadImage = true;
       this.activePortfolio = id;
       this.checkActivePortfolio;
       console.log(id);
+    },
+    checkImageLoading() {
+      console.log("отработал");
+      this.loadImage = false;
     },
   },
   mounted() {
@@ -144,6 +153,7 @@ onMounted(async () => {
   }
 }
 .slide__images {
+  position: relative;
   width: 100%;
   max-height: 350px;
   display: flex;
@@ -283,6 +293,40 @@ onMounted(async () => {
     &__image {
       max-width: 40%;
     }
+  }
+}
+</style>
+<style scoped>
+.load-portfolio {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  border-radius: 20px;
+  height: 97%;
+}
+.loader {
+  color: #e4e4e4;
+  width: 4px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: 19px 0 0 7px, 38px 0 0 3px, 57px 0 0 0;
+  transform: translateX(-38px);
+  animation: l21 0.5s infinite alternate linear;
+}
+
+@keyframes l21 {
+  50% {
+    box-shadow: 19px 0 0 3px, 38px 0 0 7px, 57px 0 0 3px;
+  }
+  100% {
+    box-shadow: 19px 0 0 0, 38px 0 0 3px, 57px 0 0 7px;
   }
 }
 </style>
