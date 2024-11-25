@@ -94,6 +94,12 @@ import img14_8 from "../assets/portfolio/work12/8.png";
 import img14_9 from "../assets/portfolio/work12/9.png";
 import img14_10 from "../assets/portfolio/work12/10.png";
 
+import img15_1 from "../assets/portfolio/work13/1.png";
+import img15_2 from "../assets/portfolio/work13/2.png";
+import img15_3 from "../assets/portfolio/work13/3.png";
+import img15_4 from "../assets/portfolio/work13/4.png";
+import img15_5 from "../assets/portfolio/work13/5.png";
+
 export default createStore({
   state: {
     portfolio: [
@@ -246,6 +252,16 @@ export default createStore({
           img14_9,
           img14_10,
         ],
+      },
+      {
+        id: 15,
+        name: "work15",
+        title: "Разработка регистрации!",
+        description:
+          "Разработал на vue3 регистрацию для сервиса! На стадии заполнения формы все необходимые данные сохраняются в query параметры, что дает гаранитую их сохранения после случайного или целенаправленного их обновления!",
+        link: null,
+        gitHub: null,
+        images: [img15_1, img15_2, img15_3, img15_4, img15_5],
       },
     ],
   },
