@@ -35,31 +35,41 @@
       ccылка на gitHub <span>не доступна</span>
     </p>
   </div>
+
+  <div class="clue">
+    <div class="clue__text">
+      <p>смотреть</p>
+    </div>
+    <div class="clue__images">
+      <img src="../assets/arrow-icon.svg" class="clue__images-one" alt="" />
+      <img src="../assets/arrow-icon.svg" class="clue__images-two" alt="" />
+      <img src="../assets/arrow-icon.svg" class="clue__images-three" alt="" />
+    </div>
+  </div>
+
   <div class="portfolio">
     <div class="portfolio__image">
       <img src="../assets/items/people/img8.png" alt="" />
     </div>
     <div class="carousel__block">
-      <div class="carousel">
-        <Carousel>
-          <Slide
-            v-for="slide in checkActivePortfolio.images"
-            :key="slide"
-            class="portfolio__images"
-          >
-            <div class="slide__images">
-              <div class="load-portfolio" v-if="loadImage === true">
-                <div class="loader"></div>
-              </div>
-              <img :src="slide" alt="" @load="checkImageLoading" />
+      <div class="portfolio__carousel" ref="refScroll">
+        <div
+          class="portfolio__images"
+          v-for="(slide, index) in checkActivePortfolio.images"
+          :key="index"
+        >
+          <div class="slide__images">
+            <div class="load-portfolio" v-if="loadImage === true">
+              <div class="loader"></div>
             </div>
-          </Slide>
-
-          <template #addons>
-            <Navigation />
-            <Pagination />
-          </template>
-        </Carousel>
+            <img
+              :src="slide"
+              :class="{ start__scroll: !isScrolling }"
+              alt=""
+              @load="checkImageLoading"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -72,7 +82,6 @@ import { mapGetters } from "vuex";
 import "vue3-carousel/dist/carousel.css";
 
 export default defineComponent({
-  name: "Basic",
   components: {
     Carousel,
     Slide,
@@ -83,6 +92,10 @@ export default defineComponent({
     return {
       activePortfolio: 1,
       loadImage: true,
+      config: {
+        slideWidth: 400,
+      },
+      isScrolling: true,
     };
   },
   computed: {
@@ -93,43 +106,26 @@ export default defineComponent({
     checkActivePortfolio() {
       return this.getPortfolio.find((item) => item.id === this.activePortfolio);
     },
+    checkActiveImages() {
+      if (this.checkActivePortfolio) {
+        return this.checkActivePortfolio.images;
+      }
+    },
   },
   methods: {
     selectPortfolio(id) {
       this.loadImage = true;
       this.activePortfolio = id;
       this.checkActivePortfolio;
-      console.log(id);
+      // Сброс скролла
+      this.$nextTick(() => {
+        this.$refs.refScroll.scrollLeft = 0;
+      });
     },
     checkImageLoading() {
-      console.log("отработал");
       this.loadImage = false;
     },
   },
-  mounted() {
-    console.log(this.checkUserPortfolio);
-  },
-});
-</script>
-
-<script setup>
-import { onMounted, nextTick } from "vue";
-
-onMounted(async () => {
-  await nextTick();
-
-  const next = document.querySelectorAll(".carousel__next")[1];
-  const prev = document.querySelectorAll(".carousel__prev")[1];
-  const image = document.querySelector(".portfolio__image");
-  const btn = [next, prev];
-  for (let item of btn) {
-    item.addEventListener("click", () => {
-      image.classList.add("jump__active");
-      setTimeout(() => {
-        image.classList.remove("jump__active");
-      }, 500);
-    });
-  }
 });
 </script>
 
@@ -141,30 +137,45 @@ onMounted(async () => {
   align-items: center;
   height: 400px;
   margin-bottom: 100px;
+  backdrop-filter: contrast(0.5);
   &__image {
     max-width: 350px;
     & img {
       width: 100%;
     }
   }
+  &__images {
+    position: relative;
+  }
   & .carousel__block {
     align-items: center;
     margin-bottom: 0;
   }
+  &__carousel {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: clip;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 40px;
+  }
 }
 .slide__images {
   position: relative;
-  width: 100%;
   max-height: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
   & img {
-    width: 100%;
     object-fit: cover;
     border-radius: 25px;
     padding: 5px;
     max-width: 600px;
+    max-width: 450px;
+    border: 1px solid white;
+    margin: 0 20px;
+    box-shadow: 0px 0px 10px #ffffff59;
   }
 }
 .select {
@@ -228,9 +239,6 @@ onMounted(async () => {
   color: black;
   border-radius: 25px;
 }
-.carousel {
-  width: 100%;
-}
 
 .jump__active {
   & img {
@@ -256,9 +264,9 @@ onMounted(async () => {
     }
     &__items--btn {
       padding: 5px;
-      &:hover {
-        color: black;
-      }
+      // &:hover {
+      //   color: black;
+      // }
     }
     &__description {
       font-size: 16px;
@@ -295,6 +303,21 @@ onMounted(async () => {
     }
   }
 }
+@media (max-width: 800px) {
+  .slide__images img {
+    max-width: 400px;
+  }
+}
+@media (max-width: 720px) {
+  .slide__images img {
+    max-width: 350px;
+  }
+}
+@media (max-width: 635px) {
+  .slide__images img {
+    max-width: 300px;
+  }
+}
 </style>
 <style scoped>
 .load-portfolio {
@@ -327,6 +350,85 @@ onMounted(async () => {
   }
   100% {
     box-shadow: 19px 0 0 0, 38px 0 0 3px, 57px 0 0 7px;
+  }
+}
+.clue {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-right: 20%;
+  margin-bottom: 10px;
+  position: relative;
+}
+.clue__images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.clue__images img {
+  display: block;
+  width: 10px;
+  position: absolute;
+}
+.clue__text {
+  margin-right: 20px;
+  font-size: 20px;
+}
+.clue__text::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 0px;
+  background: white;
+  color: white;
+  transition: all 0.5s ease;
+  animation: afterWidth 4s ease infinite;
+}
+@keyframes afterWidth {
+  0% {
+    opacity: 0;
+    width: 0px;
+  }
+  50% {
+    opacity: 1;
+    width: 108px;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.clue__images-one {
+  left: 0px;
+}
+.clue__images-two {
+  left: 0px;
+  animation: arrowsTwo 4s ease infinite;
+}
+.clue__images-three {
+  animation: arrowsThree 4s ease infinite;
+}
+
+@keyframes arrowsTwo {
+  0% {
+    left: 0px;
+  }
+  50% {
+    left: 15px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+@keyframes arrowsThree {
+  0% {
+    left: 0px;
+  }
+  50% {
+    left: 30px;
+  }
+  100% {
+    left: 0px;
   }
 }
 </style>
