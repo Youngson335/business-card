@@ -100,6 +100,23 @@ import img15_3 from "../assets/portfolio/work13/3.png";
 import img15_4 from "../assets/portfolio/work13/4.png";
 import img15_5 from "../assets/portfolio/work13/5.png";
 
+import img16_1 from "../assets/portfolio/work14/1.png";
+import img16_2 from "../assets/portfolio/work14/2.png";
+import img16_3 from "../assets/portfolio/work14/3.png";
+import img16_4 from "../assets/portfolio/work14/4.png";
+import img16_5 from "../assets/portfolio/work14/5.png";
+import img16_6 from "../assets/portfolio/work14/6.png";
+import img16_7 from "../assets/portfolio/work14/7.png";
+import img16_8 from "../assets/portfolio/work14/8.png";
+import img16_9 from "../assets/portfolio/work14/9.png";
+import img16_10 from "../assets/portfolio/work14/10.png";
+import img16_11 from "../assets/portfolio/work14/11.png";
+import img16_12 from "../assets/portfolio/work14/12.png";
+import img16_13 from "../assets/portfolio/work14/13.png";
+import img16_14 from "../assets/portfolio/work14/14.png";
+import img16_15 from "../assets/portfolio/work14/15.png";
+import img16_16 from "../assets/portfolio/work14/16.png";
+
 export default createStore({
   state: {
     portfolio: [
@@ -262,6 +279,33 @@ export default createStore({
         link: null,
         gitHub: null,
         images: [img15_1, img15_2, img15_3, img15_4, img15_5],
+      },
+      {
+        id: 16,
+        name: "work16",
+        title: "Разработка благотворительного фонда",
+        description:
+          "Разработал на vue3 за 2 дня по макету figma данный фонд. Без связи с бекендом, но с симуляцией локальной базы данных!",
+        link: "https://russian-cross-dev.vercel.app/",
+        gitHub: null,
+        images: [
+          img16_1,
+          img16_2,
+          img16_3,
+          img16_4,
+          img16_5,
+          img16_6,
+          img16_7,
+          img16_8,
+          img16_9,
+          img16_10,
+          img16_11,
+          img16_12,
+          img16_13,
+          img16_14,
+          img16_15,
+          img16_16,
+        ],
       },
     ],
   },
