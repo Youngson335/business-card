@@ -117,6 +117,15 @@ import img16_14 from "../assets/portfolio/work14/14.png";
 import img16_15 from "../assets/portfolio/work14/15.png";
 import img16_16 from "../assets/portfolio/work14/16.png";
 
+import img17_1 from "../assets/portfolio/work15/1.png";
+import img17_2 from "../assets/portfolio/work15/2.png";
+import img17_3 from "../assets/portfolio/work15/3.png";
+import img17_4 from "../assets/portfolio/work15/4.png";
+import img17_5 from "../assets/portfolio/work15/5.png";
+import img17_6 from "../assets/portfolio/work15/6.png";
+import img17_7 from "../assets/portfolio/work15/7.png";
+import img17_8 from "../assets/portfolio/work15/8.png";
+
 export default createStore({
   state: {
     portfolio: [
@@ -305,6 +314,25 @@ export default createStore({
           img16_14,
           img16_15,
           img16_16,
+        ],
+      },
+      {
+        id: 17,
+        name: "work17",
+        title: "Разработка кликер-игры",
+        description:
+          "Данная игра разрабатывалась достаточно давно в виде личного проекта! По итогу проект не был доведен до конца!",
+        link: null,
+        gitHub: null,
+        images: [
+          img17_1,
+          img17_2,
+          img17_3,
+          img17_4,
+          img17_5,
+          img17_6,
+          img17_7,
+          img17_8,
         ],
       },
     ],
